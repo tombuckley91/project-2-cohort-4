@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(router);
 
 // @TODO - REMOVE FOR PRODUCTION
-sequelize.sync().then(() => {
+sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => {
     console.log(`App listening on port: ${PORT}`);
   });
