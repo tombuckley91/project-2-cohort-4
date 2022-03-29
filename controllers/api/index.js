@@ -1,10 +1,12 @@
 const express = require("express");
-const petsRouter = require("./pets");
+const carsRouter = require("./cars");
 const studentsRouter = require("./students");
+const hiringsRouter = require("./hirings");
 
 const router = express.Router();
 
-router.use("/pets", petsRouter);
+router.use("/cars", carsRouter);
 router.use("/students", studentsRouter);
+router.use("/hirings", hiringsRouter);
 
 module.exports = router;
