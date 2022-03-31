@@ -44,6 +44,7 @@ router.post("/", async (req, res) => {
     const studentData = await Student.create({
       name: req.body.name,
       email: req.body.email,
+      password: req.body.password,
     });
 
     res.json(studentData.get({ plain: true }));
