@@ -1,12 +1,14 @@
 const express = require("express");
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const handlebars = require("express-handlebars");
 
 const router = require("./controllers");
 const sequelize = require("./config/connection");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const hbs = handlebars.create();
 
 app.use(
   session({
@@ -18,6 +20,9 @@ app.use(
     }),
   })
 );
+
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

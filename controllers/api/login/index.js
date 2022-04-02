@@ -22,12 +22,10 @@ router.post("/", async (req, res) => {
 
   const student = studentData.get({ plain: true });
 
-  req.session.save(() => {
-    req.session.studentId = student.id;
-    req.session.loggedIn = true;
+  req.session.studentId = student.id;
+  req.session.loggedIn = true;
 
-    res.status(204).end();
-  });
+  res.status(204).end();
 });
 
 module.exports = router;
